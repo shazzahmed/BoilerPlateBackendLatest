@@ -1,0 +1,124 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace Common.DTO.Request
+{
+    /// <summary>
+    /// Request model for updating an existing tenant/school
+    /// Used by super admin or tenant admin to update settings
+    /// </summary>
+    public class TenantUpdateRequest
+    {
+        [Required(ErrorMessage = "Tenant ID is required")]
+        public int TenantId { get; set; }
+
+        [Required(ErrorMessage = "School Name is required")]
+        [MaxLength(200, ErrorMessage = "School Name cannot exceed 200 characters")]
+        public string SchoolName { get; set; } = string.Empty;
+
+        [MaxLength(50)]
+        public string ShortName { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string? Domain { get; set; }
+
+        // Contact Information
+        [Required(ErrorMessage = "Address is required")]
+        [MaxLength(500)]
+        public string Address { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string City { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string State { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string Country { get; set; } = string.Empty;
+
+        [MaxLength(20)]
+        public string PostalCode { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Contact Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email format")]
+        [MaxLength(100)]
+        public string ContactEmail { get; set; } = string.Empty;
+
+        [Phone(ErrorMessage = "Invalid phone number")]
+        [MaxLength(20)]
+        public string ContactPhone { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string Website { get; set; } = string.Empty;
+
+        // Branding
+        [MaxLength(500)]
+        public string Logo { get; set; } = string.Empty;
+
+        [MaxLength(10)]
+        public string PrimaryColor { get; set; } = "#1976d2";
+
+        [MaxLength(10)]
+        public string SecondaryColor { get; set; } = "#dc004e";
+
+        // Subscription
+        [Required(ErrorMessage = "Subscription Tier is required")]
+        public string SubscriptionTier { get; set; } = "Basic";
+
+        public DateTime? SubscriptionEndDate { get; set; }
+
+        public bool IsActive { get; set; } = true;
+
+        public bool IsSubscriptionValid { get; set; } = true;
+
+        // Resource Limits
+        [Range(1, 100000, ErrorMessage = "Max Students must be between 1 and 100,000")]
+        public int MaxStudents { get; set; }
+
+        [Range(1, 10000, ErrorMessage = "Max Staff must be between 1 and 10,000")]
+        public int MaxStaff { get; set; }
+
+        [Range(1, 1000, ErrorMessage = "Storage Limit must be between 1 and 1,000 GB")]
+        public decimal StorageLimitGB { get; set; }
+
+        // Regional Settings
+        [MaxLength(100)]
+        public string TimeZone { get; set; } = "UTC";
+
+        [MaxLength(10)]
+        public string Currency { get; set; } = "USD";
+
+        [MaxLength(10)]
+        public string CurrencySymbol { get; set; } = "$";
+
+        [MaxLength(10)]
+        public string Language { get; set; } = "en";
+
+        [MaxLength(20)]
+        public string DateFormat { get; set; } = "MM/DD/YYYY";
+
+        // Academic Configuration
+        [MaxLength(50)]
+        public string InstitutionType { get; set; } = "School";
+
+        [MaxLength(50)]
+        public string EducationLevel { get; set; } = "All";
+
+        [Range(1, 12)]
+        public int AcademicYearStartMonth { get; set; }
+
+        [Range(1, 12)]
+        public int AcademicYearEndMonth { get; set; }
+
+        // Features
+        public string EnabledFeatures { get; set; } = string.Empty;
+
+        // Admin
+        [MaxLength(100)]
+        public string PrimaryContactName { get; set; } = string.Empty;
+
+        [MaxLength(1000)]
+        public string Notes { get; set; } = string.Empty;
+    }
+}
+
+

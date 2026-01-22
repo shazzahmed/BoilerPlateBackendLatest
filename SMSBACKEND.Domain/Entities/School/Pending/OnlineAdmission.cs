@@ -1,0 +1,61 @@
+﻿public class OnlineAdmission
+{
+    public int Id { get; set; }
+    public string AdmissionNo { get; set; }
+    public string RollNo { get; set; }
+    public DateTime? AdmissionDate { get; set; }
+    public string Firstname { get; set; }
+    public string Lastname { get; set; }
+    public string Rte { get; set; } = "No";
+    public string Image { get; set; }
+    public string MobileNo { get; set; }
+    public string Email { get; set; }
+    public string State { get; set; }
+    public string City { get; set; }
+    public string Pincode { get; set; }
+    public string Religion { get; set; }
+    public string Cast { get; set; }
+    public DateTime? Dob { get; set; }
+    public string Gender { get; set; }
+    public string CurrentAddress { get; set; }
+    public string PermanentAddress { get; set; }
+    public int? CategoryId { get; set; }
+    public int? ClassSectionId { get; set; }
+    public int RouteId { get; set; }
+    public int? SchoolHouseId { get; set; }
+    public string BloodGroup { get; set; }
+    public int VehRouteId { get; set; }
+    public int HostelRoomId { get; set; }
+    public string AdharNo { get; set; }
+    public string SamagraId { get; set; }
+    public string BankAccountNo { get; set; }
+    public string BankName { get; set; }
+    public string IfscCode { get; set; }
+    public string GuardianIs { get; set; }
+    public string FatherName { get; set; }
+    public string FatherPhone { get; set; }
+    public string FatherOccupation { get; set; }
+    public string MotherName { get; set; }
+    public string MotherPhone { get; set; }
+    public string MotherOccupation { get; set; }
+    public string GuardianName { get; set; }
+    public string GuardianRelation { get; set; }
+    public string GuardianPhone { get; set; }
+    public string GuardianOccupation { get; set; }
+    public string GuardianAddress { get; set; }
+    public string GuardianEmail { get; set; }
+    public string FatherPic { get; set; }
+    public string MotherPic { get; set; }
+    public string GuardianPic { get; set; }
+    public int IsEnroll { get; set; } = 0;
+    public string PreviousSchool { get; set; }
+    public string Height { get; set; }
+    public string Weight { get; set; }
+    public string Note { get; set; }
+    public DateTime? MeasurementDate { get; set; }
+    public string AppKey { get; set; }
+    public string Document { get; set; }
+    public DateTime DisableAt { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
+}

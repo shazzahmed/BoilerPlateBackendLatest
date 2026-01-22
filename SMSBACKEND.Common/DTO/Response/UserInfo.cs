@@ -1,0 +1,21 @@
+﻿using static Common.Utilities.Enums;
+
+namespace Common.DTO.Response
+{
+    public class UserInfo
+    {
+        public string? Id { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? FullName => $"{FirstName} {LastName}";
+        public string? UserName { get; set; }
+        public string? Email { get; set; }
+        public string? Address { get; set; }
+        public string? Gender { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string? Picture { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? NicNumber { get; set; }
+        public List<string>? Roles { get; set; }
+    }
+}
