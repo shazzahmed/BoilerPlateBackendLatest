@@ -16,14 +16,14 @@ class Program
         string basePath = Directory.GetCurrentDirectory();
 
         // Define target directories
-        string repositoryDir = Path.Combine(basePath, "SMSBACKEND.Infrastructure", "Repository");
-        string iRepositoryDir = Path.Combine(basePath, "SMSBACKEND.Domain", "RepositoriesContracts", "IRepository");
-        string serviceDir = Path.Combine(basePath, "SMSBACKEND.Infrastructure", "Services", "Services");
-        string iServiceDir = Path.Combine(basePath, "SMSBACKEND.Application", "ServiceContracts", "IServices");
+        string repositoryDir = Path.Combine(basePath, "BoilerPlateBackend.Infrastructure", "Repository");
+        string iRepositoryDir = Path.Combine(basePath, "BoilerPlateBackend.Domain", "RepositoriesContracts", "IRepository");
+        string serviceDir = Path.Combine(basePath, "BoilerPlateBackend.Infrastructure", "Services", "Services");
+        string iServiceDir = Path.Combine(basePath, "BoilerPlateBackend.Application", "ServiceContracts", "IServices");
         string solutionPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
-        string modelDTODir = Path.Combine(solutionPath ?? string.Empty, "SMSBACKEND.Common", "DTO", "Response");
+        string modelDTODir = Path.Combine(solutionPath ?? string.Empty, "BoilerPlateBackend.Common", "DTO", "Response");
         string marker = "// automatic code generation area end";
-        string repositoryModulefilePath = Path.Combine(solutionPath, "SMSBACKEND.Infrastructure", "DependencyResolutions", "RepositoryModule.cs");
+        string repositoryModulefilePath = Path.Combine(solutionPath, "BoilerPlateBackend.Infrastructure", "DependencyResolutions", "RepositoryModule.cs");
         string lineToAddRepositoryModule = $@"            services.AddTransient<I{entityName}Repository, {entityName}Repository>();";
 
         // Ensure directories exist
@@ -62,7 +62,7 @@ class Program
                 }
             }
         }
-        string serviceModulefilePath = Path.Combine(solutionPath, "SMSBACKEND.Infrastructure", "DependencyResolutions", "ServiceModule.cs");
+        string serviceModulefilePath = Path.Combine(solutionPath, "BoilerPlateBackend.Infrastructure", "DependencyResolutions", "ServiceModule.cs");
         string lineToAddServiceModule = $@"            services.AddTransient<I{entityName}Service, {entityName}Service>();";
         if (!File.Exists(serviceModulefilePath))
         {
@@ -91,7 +91,7 @@ class Program
             }
         }
 
-        string modelMapperfilePath = Path.Combine(solutionPath, "SMSBACKEND.Application", "Mappings", "ModelMapper.cs");
+        string modelMapperfilePath = Path.Combine(solutionPath, "BoilerPlateBackend.Application", "Mappings", "ModelMapper.cs");
         string lineToAddModelMapper = $@"            CreateMap<{entityName}, {entityName}Model>().ReverseMap();";
         if (!File.Exists(modelMapperfilePath))
         {
@@ -120,7 +120,7 @@ class Program
             }
         }
 
-        string ISqlServerDbContextfilePath = Path.Combine(solutionPath, "SMSBACKEND.Infrastructure", "Database", "ISqlServerDbContext.cs");
+        string ISqlServerDbContextfilePath = Path.Combine(solutionPath, "BoilerPlateBackend.Infrastructure", "Database", "ISqlServerDbContext.cs");
         string lineToAddISqlServerDbContext = $@"            DbSet<{entityName}> {entityName} {{ get; set; }}";
         if (!File.Exists(ISqlServerDbContextfilePath))
         {
@@ -150,7 +150,7 @@ class Program
         }
 
 
-        string sqlServerDbContextfilePath = Path.Combine(solutionPath, "SMSBACKEND.Infrastructure", "Database", "SqlServerDbContext.cs");
+        string sqlServerDbContextfilePath = Path.Combine(solutionPath, "BoilerPlateBackend.Infrastructure", "Database", "SqlServerDbContext.cs");
         string lineToAddSqlServerDbContext = $@"            public virtual DbSet<{entityName}> {entityName} {{ get; set; }}";
         if (!File.Exists(sqlServerDbContextfilePath))
         {
